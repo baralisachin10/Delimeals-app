@@ -1,19 +1,27 @@
-import 'package:delimeals/screens/categories_meals.dart';
+// import 'package:delimeals/screens/categories_meals.dart';
 import 'package:flutter/material.dart';
 
 class CategoryItem extends StatelessWidget {
-  final String title;
+  final String? id;
+  final String? title;
   final Color color;
-  const CategoryItem({super.key, required this.title, required this.color});
+  const CategoryItem(
+      {super.key, required this.id, required this.title, required this.color});
 
   void selectCategory(BuildContext ctx) {
-    Navigator.of(ctx).push(
-      MaterialPageRoute(
-        builder: (ctx) {
-          return const CategoriesMeals();
-        },
-      ),
-    );
+
+    // using pushNamed method to Navigate the screen
+    Navigator.of(ctx).pushNamed(
+        // MaterialPageRoute(
+        //   builder: (ctx) {
+        //     return CategoriesMeals(id!, title!);
+        //   },
+        // ),
+        '/category_meals', arguments: {
+          'id': id,
+          'title': title,
+        }
+        );
   }
 
   @override
@@ -32,7 +40,7 @@ class CategoryItem extends StatelessWidget {
           borderRadius: BorderRadius.circular(15),
         ),
         child: Text(
-          title,
+          '$title',
           style: Theme.of(context).textTheme.titleLarge,
         ),
       ),

@@ -1,4 +1,5 @@
 import 'package:delimeals/screens/categories.dart';
+import 'package:delimeals/screens/categories_meals.dart';
 // import 'package:delimeals/screens/homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -31,6 +32,10 @@ class MyApp extends StatelessWidget {
             ),
       ),
       home: const CategoriesScreen(),
+      // defining routes for the screen 
+      routes: {
+        '/category_meals': (context) =>CategoriesMeals(),
+      },
     );
   }
 }
