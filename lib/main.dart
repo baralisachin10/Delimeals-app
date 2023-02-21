@@ -1,5 +1,7 @@
-import 'package:delimeals/screens/homepage.dart';
+import 'package:delimeals/screens/categories.dart';
+// import 'package:delimeals/screens/homepage.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() => runApp(const MyApp());
 
@@ -12,9 +14,23 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Delimeals',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.pink,
+        accentColor: Colors.amber,
+        canvasColor: const Color.fromRGBO(255, 254, 229, 1),
+        textTheme: ThemeData.light().textTheme.copyWith(
+              bodyLarge: const TextStyle(
+                color: Color.fromARGB(20, 51, 51, 1),
+              ),
+              bodyMedium: const TextStyle(
+                color: Color.fromARGB(20, 51, 51, 1),
+              ),
+              titleLarge: GoogleFonts.robotoCondensed(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
       ),
-      home: const MyHomepage(),
+      home: const CategoriesScreen(),
     );
   }
 }
