@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.pink,
         accentColor: Colors.amber,
-        canvasColor: const Color.fromRGBO(255, 254, 229, 1),
+        canvasColor: const Color.fromARGB(255, 214, 213, 194),
         textTheme: ThemeData.light().textTheme.copyWith(
               bodyLarge: const TextStyle(
                 color: Color.fromARGB(20, 51, 51, 1),
@@ -31,10 +31,12 @@ class MyApp extends StatelessWidget {
               ),
             ),
       ),
-      home: const CategoriesScreen(),
-      // defining routes for the screen 
+      // home: const CategoriesScreen(),
+      // defining routes for the screen
+      initialRoute: '/',
       routes: {
-        '/category_meals': (context) =>CategoriesMeals(),
+        '/': (context) => const CategoriesScreen(),
+        CategoriesMeals.routeName: (context) => CategoriesMeals(),
       },
     );
   }
