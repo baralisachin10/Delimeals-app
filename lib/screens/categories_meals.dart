@@ -1,4 +1,5 @@
 import 'package:delimeals/dummy_data.dart';
+import 'package:delimeals/widgets/meal_Items.dart';
 import 'package:flutter/material.dart';
 
 class CategoriesMeals extends StatelessWidget {
@@ -24,9 +25,12 @@ class CategoriesMeals extends StatelessWidget {
       appBar: AppBar(title: Text('$categoryTitle')),
       body: ListView.builder(
           itemBuilder: (ctx, index) {
-            return Text(
-              categoryMeals[index].title,
-              style: const TextStyle(color: Colors.black),
+            return MealItems(
+              title: categoryMeals[index].title,
+              imageUrl: categoryMeals[index].imageUrl,
+              duration: categoryMeals[index].duration,
+              complexity: categoryMeals[index].complexity,
+              affordability: categoryMeals[index].affordability,
             );
           },
           itemCount: categoryMeals.length),

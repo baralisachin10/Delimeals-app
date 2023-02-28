@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.pink,
         accentColor: Colors.amber,
-        canvasColor: const Color.fromARGB(255, 214, 213, 194),
+        canvasColor: Colors.pink.shade100,
         textTheme: ThemeData.light().textTheme.copyWith(
               bodyLarge: const TextStyle(
                 color: Color.fromARGB(20, 51, 51, 1),
