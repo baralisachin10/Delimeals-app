@@ -52,7 +52,7 @@ class MealDetails extends StatelessWidget {
               150,
               ListView.builder(
                 itemBuilder: (ctx, index) => Card(
-                  color: Theme.of(context).accentColor,
+                  color: Theme.of(context).colorScheme.secondary,
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
                       vertical: 10,
@@ -76,7 +76,10 @@ class MealDetails extends StatelessWidget {
                   children: [
                     ListTile(
                       leading: CircleAvatar(
-                        child: Text("# ${index + 1}"),
+                        backgroundColor:
+                            Theme.of(context).colorScheme.secondary,
+                        child: Text("# ${index + 1}",
+                            style: const TextStyle(color: Colors.black)),
                       ),
                       title: Text(selectedMeal.steps[index],
                           style: GoogleFonts.montserrat(fontSize: 12)),

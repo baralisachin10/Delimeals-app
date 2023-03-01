@@ -16,8 +16,6 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Delimeals',
       theme: ThemeData(
-        primarySwatch: Colors.pink,
-        accentColor: Colors.amber,
         canvasColor: Colors.pink.shade100,
         textTheme: ThemeData.light().textTheme.copyWith(
               bodyLarge: const TextStyle(
@@ -31,6 +29,8 @@ class MyApp extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
+        colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.pink)
+            .copyWith(secondary: Colors.amber),
       ),
       // home: const CategoriesScreen(),
       // defining routes for the screen
