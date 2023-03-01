@@ -1,5 +1,5 @@
 import 'package:delimeals/dummy_data.dart';
-import 'package:delimeals/widgets/meal_Items.dart';
+import '../widgets/meal_Items.dart';
 import 'package:flutter/material.dart';
 
 class CategoriesMeals extends StatelessWidget {
@@ -26,6 +26,7 @@ class CategoriesMeals extends StatelessWidget {
       body: ListView.builder(
           itemBuilder: (ctx, index) {
             return MealItems(
+              id: categoryMeals[index].id,
               title: categoryMeals[index].title,
               imageUrl: categoryMeals[index].imageUrl,
               duration: categoryMeals[index].duration,

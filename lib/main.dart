@@ -1,5 +1,6 @@
 import 'package:delimeals/screens/categories.dart';
 import 'package:delimeals/screens/categories_meals.dart';
+import 'package:delimeals/screens/meal_details.dart';
 // import 'package:delimeals/screens/homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -25,8 +26,8 @@ class MyApp extends StatelessWidget {
               bodyMedium: const TextStyle(
                 color: Color.fromARGB(20, 51, 51, 1),
               ),
-              titleLarge: GoogleFonts.robotoCondensed(
-                fontSize: 20,
+              titleLarge: GoogleFonts.montserrat(
+                fontSize: 16,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -36,7 +37,8 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => const CategoriesScreen(),
-        CategoriesMeals.routeName: (context) => CategoriesMeals(),
+        CategoriesMeals.routeName: (context) => const CategoriesMeals(),
+        MealDetails.routeName: (context) => const MealDetails(),
       },
     );
   }
