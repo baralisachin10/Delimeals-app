@@ -1,6 +1,7 @@
 import 'package:delimeals/screens/categories.dart';
 import 'package:delimeals/screens/categories_meals.dart';
 import 'package:delimeals/screens/meal_details.dart';
+import 'package:delimeals/screens/tabs_screen.dart';
 // import 'package:delimeals/screens/homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Delimeals',
       theme: ThemeData(
-        canvasColor: Colors.pink.shade100,
+        // canvasColor: Colors.pink.shade100,
         textTheme: ThemeData.light().textTheme.copyWith(
               bodyLarge: const TextStyle(
                 color: Color.fromARGB(20, 51, 51, 1),
@@ -36,7 +37,7 @@ class MyApp extends StatelessWidget {
       // defining routes for the screen
       initialRoute: '/',
       routes: {
-        '/': (context) => const CategoriesScreen(),
+        '/': (context) => const TabsScreen(),
         CategoriesMeals.routeName: (context) => const CategoriesMeals(),
         MealDetails.routeName: (context) => const MealDetails(),
       },
