@@ -16,17 +16,35 @@ class _CategoriesMealsState extends State<CategoriesMeals> {
   String? categoryTitle;
   List<Meal>? displayMeals;
 
+  var _isLoadedData = false;
+
   @override
-  void initState() {
+  // void initState() {
+  //   // passing arguements using pushName
+  //   final routeArgs =
+  //       ModalRoute.of(context)!.settings.arguments as Map<String, String?>;
+  //   categoryTitle = routeArgs['title'];
+  //   final categoryId = routeArgs['id'];
+  //   displayMeals = DUMMY_MEALS.where((meal) {
+  //     return meal.categories.contains(categoryId);
+  //   }).toList();
+  //   super.initState();
+  // }
+
+  @override
+  void didChangeDependencies() {
     // passing arguements using pushName
-    final routeArgs =
-        ModalRoute.of(context)!.settings.arguments as Map<String, String?>;
-    categoryTitle = routeArgs['title'];
-    final categoryId = routeArgs['id'];
-    displayMeals = DUMMY_MEALS.where((meal) {
-      return meal.categories.contains(categoryId);
-    }).toList();
-    super.initState();
+    if (!_isLoadedData) {
+      final routeArgs =
+          ModalRoute.of(context)!.settings.arguments as Map<String, String?>;
+      categoryTitle = routeArgs['title'];
+      final categoryId = routeArgs['id'];
+      displayMeals = DUMMY_MEALS.where((meal) {
+        return meal.categories.contains(categoryId);
+      }).toList();
+      _isLoadedData = true;
+    }
+    super.didChangeDependencies();
   }
 
   void _removeMeal(String mealId) {
