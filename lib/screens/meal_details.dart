@@ -36,61 +36,68 @@ class MealDetails extends StatelessWidget {
     final mealId = ModalRoute.of(context)!.settings.arguments as String;
     final selectedMeal = DUMMY_MEALS.firstWhere((meal) => meal.id == mealId);
     return Scaffold(
-      appBar: AppBar(title: Text(selectedMeal.title)),
-      body: SingleChildScrollView(
-        child: Column(children: [
-          SizedBox(
-            height: 300,
-            width: double.infinity,
-            child: Image.network(
-              selectedMeal.imageUrl,
-              fit: BoxFit.cover,
+        appBar: AppBar(title: Text(selectedMeal.title)),
+        body: SingleChildScrollView(
+          child: Column(children: [
+            SizedBox(
+              height: 300,
+              width: double.infinity,
+              child: Image.network(
+                selectedMeal.imageUrl,
+                fit: BoxFit.cover,
+              ),
             ),
-          ),
-          buildTitleSection(context, 'Ingredients'),
-          buildContainer(
-              150,
-              ListView.builder(
-                itemBuilder: (ctx, index) => Card(
-                  color: Theme.of(context).colorScheme.secondary,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 10,
-                      horizontal: 10,
-                    ),
-                    child: Text(
-                      selectedMeal.ingredients[index],
-                      style: GoogleFonts.montserrat(
-                        color: Colors.black,
+            buildTitleSection(context, 'Ingredients'),
+            buildContainer(
+                150,
+                ListView.builder(
+                  itemBuilder: (ctx, index) => Card(
+                    color: Theme.of(context).colorScheme.secondary,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 10,
+                        horizontal: 10,
+                      ),
+                      child: Text(
+                        selectedMeal.ingredients[index],
+                        style: GoogleFonts.montserrat(
+                          color: Colors.black,
+                        ),
                       ),
                     ),
                   ),
-                ),
-                itemCount: selectedMeal.ingredients.length,
-              )),
-          buildTitleSection(context, 'Steps'),
-          buildContainer(
-              160,
-              ListView.builder(
-                itemBuilder: (ctx, index) => Column(
-                  children: [
-                    ListTile(
-                      leading: CircleAvatar(
-                        backgroundColor:
-                            Theme.of(context).colorScheme.secondary,
-                        child: Text("# ${index + 1}",
-                            style: const TextStyle(color: Colors.black)),
+                  itemCount: selectedMeal.ingredients.length,
+                )),
+            buildTitleSection(context, 'Steps'),
+            buildContainer(
+                160,
+                ListView.builder(
+                  itemBuilder: (ctx, index) => Column(
+                    children: [
+                      ListTile(
+                        leading: CircleAvatar(
+                          backgroundColor:
+                              Theme.of(context).colorScheme.secondary,
+                          child: Text("# ${index + 1}",
+                              style: const TextStyle(color: Colors.black)),
+                        ),
+                        title: Text(selectedMeal.steps[index],
+                            style: GoogleFonts.montserrat(fontSize: 12)),
                       ),
-                      title: Text(selectedMeal.steps[index],
-                          style: GoogleFonts.montserrat(fontSize: 12)),
-                    ),
-                    const Divider(color: Colors.black),
-                  ],
-                ),
-                itemCount: selectedMeal.steps.length,
-              )),
-        ]),
-      ),
-    );
+                      const Divider(color: Colors.black),
+                    ],
+                  ),
+                  itemCount: selectedMeal.steps.length,
+                )),
+          ]),
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            Navigator.of(context).pop(mealId);
+          },
+          child: const Icon(
+            Icons.delete,
+          ),
+        ));
   }
 }

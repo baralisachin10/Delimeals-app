@@ -5,6 +5,7 @@ import 'package:delimeals/screens/tabs_screen.dart';
 // import 'package:delimeals/screens/homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import './screens/filter_screen.dart';
 
 void main() => runApp(const MyApp());
 
@@ -40,6 +41,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => const TabsScreen(),
         CategoriesMeals.routeName: (context) => const CategoriesMeals(),
         MealDetails.routeName: (context) => const MealDetails(),
+        FilterScreen.routeName: (context) => const FilterScreen(),
       },
 
       // ongenerate route

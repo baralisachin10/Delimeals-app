@@ -1,3 +1,4 @@
+import '../widgets/main_drawer.dart';
 import './categories.dart';
 import './favourite_screen.dart';
 import 'package:flutter/material.dart';
@@ -30,6 +31,7 @@ class _TabsScreenState extends State<TabsScreen> {
         title: Text(_pages[_selectPageIndex]['title']),
         // centerTitle: true,
       ),
+      drawer: const MainDrawer(),
       body: _pages[_selectPageIndex]['page'],
       bottomNavigationBar: BottomNavigationBar(
         onTap: _selectPages,
